@@ -1,0 +1,54 @@
+@import '../../commonFiles/style/_variables.scss';
+.header {
+    background-color: #F0F1F3;
+    margin: auto;
+    padding: 15px;
+    &-title {
+        color: $blue;
+        margin-bottom: 10px;
+    }
+}
+
+.btn {
+    border: 1px solid $red;
+    border-radius: 5px;
+    color: $white;
+    align-items: center;
+    font-size: 1rem;
+    margin-right: 10px;
+}
+
+.btn-primary {
+    background-color: $red;
+    padding: 5px 10px;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    span {
+        color: $grey;
+    }
+    svg {
+        margin-right: 10px;
+    }
+    &:last-child {
+        margin-left: auto;
+    }
+}
+
+.secondary-nav {
+    background: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.select {
+    color: $grey;
+}
