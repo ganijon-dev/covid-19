@@ -1,0 +1,42 @@
+@import '../../commonFiles/style/variables';
+.wrapper {
+    margin: 0 15px;
+}
+
+.total {
+    display: flex;
+    background-color: $blue;
+    justify-content: space-between;
+    color: $white;
+    margin: 15px 0;
+    border-radius: 5px;
+    padding: 10px;
+    &-type {
+        font-size: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &__title {
+            display: block;
+        }
+        &__stats {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    }
+}
+
+.cases-header {
+    display: grid;
+    grid-template-columns: 3fr 2fr 2fr 1fr;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 0 12px;
+    & div:last-child {
+        display: flex;
+        justify-content: flex-end;
+    }
+    & div {
+        justify-content: flex-start;
+    }
+}

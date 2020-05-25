@@ -1,0 +1,24 @@
+@import '../../../commonFiles/style/variables';
+.cases-country {
+    display: grid;
+    grid-template-columns: 3fr 2fr 2fr 1fr;
+    font-size: 12px;
+    background-color: #F0F1F3;
+    padding: 12px;
+    margin-top: 8px;
+    border-radius: 5px;
+}
+
+//Country
+.country-name {
+    color: $black;
+    font-weight: 600;
+    & img {
+        margin-right: 5px;
+    }
+}
+
+.country-stats {
+    text-align: center;
+    color: $grey;
+}

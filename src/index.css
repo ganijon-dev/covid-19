@@ -5,6 +5,15 @@
     font-family: 'Nunito Sans', sans-serif;
 }
 
+a {
+    text-decoration: none;
+}
+
+body {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 .border {
     border: 1px solid #F40555;
     border-radius: 5px;
@@ -12,4 +21,16 @@
 
 .flag-select {
     padding-bottom: 0 !important;
+}
+
+span.flag-select__option {
+    max-width: 150px !important;
+    overflow: hidden;
+}
+
+@media (min-width: 767px) {
+    span.flag-select__option {
+        max-width: 350px !important;
+        overflow: hidden;
+    }
 }

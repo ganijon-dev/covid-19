@@ -1,6 +1,9 @@
 import React, { Component} from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Navbar from './components/Navbar/Navbar'
+import CountryList from './components/CountryList/CountryList';
+import WorldMap from './components/WorldMap/WorldMap';
+import Charts from './components/Charts/Charts';
 class App extends Component {
     
     render() {
@@ -10,8 +13,11 @@ class App extends Component {
       
         <div className = "App" >  
             <Navbar/>
+          
             <Switch>
-            <Route exact path= '/'/>
+            <Route exact path= '/countries/list' component={CountryList}/>
+            <Route exact path= '/world-map' component={WorldMap}/>
+            <Route exact path= '/world/statistics' component={Charts}/>
              
             </Switch>
             
