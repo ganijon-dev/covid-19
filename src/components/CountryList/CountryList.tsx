@@ -1,24 +1,44 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import classes from './CountryList.module.scss'
 // eslint-disable-next-line
-import {cx} from '../../commonFiles/functions/index'
+import {cx, numberFormatter} from '../../commonFiles/functions/index'
 import CountryItem from './CountryItem/CountryItem'
 
+import { fetchCountriesData} from '../../api/index';
+
+interface CountryList {
+    TotalConfirmed:number,
+    TotalDeaths: number,
+    TotalRecovered:number, 
+    sortedCountries:any
+};
+
+
 const CountryList = () => {
+    const [countryList,setCountryList] = useState <CountryList> ();
+   
+    useEffect(()=> {
+        const fetchAPI = async () => {
+            setCountryList( await fetchCountriesData());
+        }
+        fetchAPI();
+    }, [])
+
     return (
+      
         <div className={classes['wrapper']}>
             <div className={classes['total']}>
                 <div className={classes['total-type']}>
                     <span className={classes['total-type__title']}>Confirmed</span>
-                    <span className={classes['total-type__stats']}>1,605,544</span>
+                    <span className={classes['total-type__stats']}>{numberFormatter(countryList?.TotalConfirmed)}</span>
                 </div>
                 <div className={classes['total-type']}>
                     <span className={classes['total-type__title']}>Recovered</span>
-                    <span className={classes['total-type__stats']}>605,544</span>
+                    <span className={classes['total-type__stats']}>{numberFormatter(countryList?.TotalRecovered)}</span>
                 </div>
                 <div className={classes['total-type']}>
                     <span className={classes['total-type__title']}>Deaths</span>
-                    <span className={classes['total-type__stats']}>544</span>
+                    <span className={classes['total-type__stats']}>{numberFormatter(countryList?.TotalDeaths)}</span>
                 </div>
             </div>
             <div className={classes['country-cases']}>
@@ -28,11 +48,17 @@ const CountryList = () => {
                     <div> Recovered </div>
                     <div> Deaths</div>
                 </div>
-                <CountryItem />
-                <CountryItem/>
-                <CountryItem/>
-                <CountryItem/>
-                <CountryItem/>
+                {countryList?.sortedCountries.map(({Country, CountryCode, TotalConfirmed,TotalDeaths,TotalRecovered }) => {
+                   return <CountryItem 
+                    countryCode= {CountryCode} 
+                    country= {Country}
+                    totalConfirmed= {TotalConfirmed}
+                    totalDeaths = {TotalDeaths}
+                    totalRecovered = {TotalRecovered}
+                    key={CountryCode}
+                    />
+                })}
+                
                 
             </div>
         </div>

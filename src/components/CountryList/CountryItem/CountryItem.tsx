@@ -1,20 +1,30 @@
 import React from 'react'
-import ReactCountryFlag from "react-country-flag"
-import classes from './CountryItem.module.scss'
+import {numberFormatter} from '../../../commonFiles/functions/index';
+import ReactCountryFlag from 'react-country-flag';
+import classes from './CountryItem.module.scss';
 
-const CountryItem = () => {
+interface CountryItem  {
+    countryCode:string,
+    country: string,
+    totalConfirmed:number,
+    totalDeaths: number,
+    totalRecovered: number,
+}
+const CountryItem = (props) => {
+
+    const {countryCode,  country, totalConfirmed, totalDeaths,totalRecovered} = props;
     return (
         <div className={classes['cases-country']}>
                     <div className={classes['country-name']}>
-                <ReactCountryFlag countryCode="US" svg style={{
+                <ReactCountryFlag countryCode={countryCode} svg style={{
                     fontSize: '20px',
-                    lineHeight: '2em',
+                    lineHeight: '10em',
                 }} />
-                    <span>United States</span>
+                    <span>{country}</span>
                     </div>
-                    <div className={classes['country-stats']}> 1,300,333</div>
-                    <div className={classes['country-stats']}> 1,300,333</div>
-                    <div className={classes['country-stats']}> 300,333</div>
+                    <div className={classes['country-stats']}> {numberFormatter(totalConfirmed)}</div>
+                    <div className={classes['country-stats']}> {numberFormatter(totalRecovered)}</div>
+                    <div className={classes['country-stats']}> {numberFormatter(totalDeaths)}</div>
                 </div>
     )
 }

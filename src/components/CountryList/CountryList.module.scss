@@ -20,7 +20,7 @@
             display: block;
         }
         &__stats {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: bold;
         }
     }
@@ -39,4 +39,8 @@
     & div {
         justify-content: flex-start;
     }
+}
+
+.country-cases {
+    margin-bottom: 8px;
 }
