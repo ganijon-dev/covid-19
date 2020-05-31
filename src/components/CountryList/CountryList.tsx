@@ -18,6 +18,7 @@ const CountryList = () => {
     const [countryList,setCountryList] = useState <CountryList> ();
    
     useEffect(()=> {
+        console.log('puulling');
         const fetchAPI = async () => {
             setCountryList( await fetchCountriesData());
         }
@@ -48,13 +49,16 @@ const CountryList = () => {
                     <div> Recovered </div>
                     <div> Deaths</div>
                 </div>
-                {countryList?.sortedCountries.map(({Country, CountryCode, TotalConfirmed,TotalDeaths,TotalRecovered }) => {
+                {countryList?.sortedCountries.map(({Country, CountryCode, TotalConfirmed,TotalDeaths,TotalRecovered,NewConfirmed,NewRecovered,NewDeaths }) => {
                    return <CountryItem 
                     countryCode= {CountryCode} 
                     country= {Country}
                     totalConfirmed= {TotalConfirmed}
                     totalDeaths = {TotalDeaths}
                     totalRecovered = {TotalRecovered}
+                    newConfirmed = {NewConfirmed} 
+                    newRecovered = {NewRecovered}
+                    newDeaths = {NewDeaths}
                     key={CountryCode}
                     />
                 })}

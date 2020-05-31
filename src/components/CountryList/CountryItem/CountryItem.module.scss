@@ -1,10 +1,10 @@
 @import '../../../commonFiles/style/variables';
-.cases-country {
+.country-item {
     display: grid;
     grid-template-columns: 3fr 2fr 2fr 1fr;
     font-size: 12px;
     background-color: #F0F1F3;
-    padding: 12px;
+    padding: 8px 12px;
     margin-top: 8px;
     border-radius: 5px;
     align-items: center;
@@ -24,4 +24,21 @@
 .country-stats {
     text-align: center;
     color: $grey;
+}
+
+.cases {
+    display: block;
+    font-weight: 600;
+}
+
+.new_deaths {
+    color: $red;
+}
+
+.new_recovered {
+    color: $green
+}
+
+.new_confirmed {
+    color: $blue;
 }

@@ -14,7 +14,7 @@ export const fetchDailyData = async() => {
         }))
         return modifiedData;
     } catch (error) {
-        console.log(error);
+        throw Error (error);
     }
 
 }
@@ -29,9 +29,10 @@ export const fetchCountriesData  = async () => {
             if (a['TotalConfirmed'] > b['TotalConfirmed'])  return -1;
 
         })
+
        return {sortedCountries,TotalConfirmed, TotalDeaths, TotalRecovered };
     }
     catch (error) {
-        console.log(error);
+        throw Error (error);
     }
 }

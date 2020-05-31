@@ -9,22 +9,38 @@ interface CountryItem  {
     totalConfirmed:number,
     totalDeaths: number,
     totalRecovered: number,
+    newConfirmed:number,
+    newRecovered:number,
+    newDeaths:number
 }
-const CountryItem = (props) => {
+const CountryItem:React.FC <CountryItem> = (props) => {
 
-    const {countryCode,  country, totalConfirmed, totalDeaths,totalRecovered} = props;
+    const updateCountryName = (name:string):string => {
+        if (name === 'United States of America') return 'USA';
+        else if ( name.match(/.+?(?=,)/)) return name.match(/.+?(?=,)/)![0]; 
+        else return name ;
+    }
     return (
-        <div className={classes['cases-country']}>
+        <div className={classes['country-item']}>
                     <div className={classes['country-name']}>
-                <ReactCountryFlag countryCode={countryCode} svg style={{
+                <ReactCountryFlag countryCode={props.countryCode} svg style={{
                     fontSize: '20px',
                     lineHeight: '10em',
                 }} />
-                    <span>{country}</span>
+                    <span>{updateCountryName(props.country) }</span>
                     </div>
-                    <div className={classes['country-stats']}> {numberFormatter(totalConfirmed)}</div>
-                    <div className={classes['country-stats']}> {numberFormatter(totalRecovered)}</div>
-                    <div className={classes['country-stats']}> {numberFormatter(totalDeaths)}</div>
+                    <div className={classes['country-stats']}>
+                        <span className={classes['cases']}> {numberFormatter(props.totalConfirmed)} </span>
+                        {props.newConfirmed ? <span className={classes['new_confirmed']}>+{props.newConfirmed}</span>: null}
+                    </div>
+                    <div className={classes['country-stats']}> 
+                        <span className={classes['cases']}>{numberFormatter(props.totalRecovered)} </span>
+                        {props.newRecovered ?  <span className={classes['new_recovered']}>+{props.newRecovered}</span>:null}
+                    </div>
+                    <div className={classes['country-stats']}> 
+                        <span className={classes['cases']}>{numberFormatter(props.totalDeaths)}</span>
+                        {props.newDeaths ?  <span className={classes['new_deaths']}>+{props.newDeaths}</span>: null}
+                    </div>
                 </div>
     )
 }
