@@ -7,17 +7,17 @@ import Charts from './components/Charts/Charts';
 class App extends Component {
     
     render() {
-     
+  
       return ( 
         <BrowserRouter>
-      
+       
         <div className = "App" >  
-            <Navbar/>
-          
+            <Navbar />
             <Switch>
+          
             <Route exact path= '/countries/list' component={CountryList}/>
             <Route exact path= '/world-map' component={WorldMap}/>
-            <Route exact path= '/world/statistics' component={Charts}/>
+            <Route  exact path= '/world/statistics' component={Charts}/>
              
             </Switch>
             

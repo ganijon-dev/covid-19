@@ -13,9 +13,9 @@ const geoUrl =
   "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
 const WorldMap:React.FC = () => {
     return (
-        <div>
+      <>
         <ComposableMap>
-          <ZoomableGroup zoom={1} className={classes['map-positon']}>
+          <ZoomableGroup className={classes['map-positon']}>
             <Geographies geography={geoUrl} >
               {({ geographies }) =>
                 geographies.map(geo => (
@@ -56,7 +56,7 @@ const WorldMap:React.FC = () => {
                 </div>
             </div>
         </div>
-      </div>
+      </>
     )
 }
 

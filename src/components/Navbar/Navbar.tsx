@@ -15,7 +15,7 @@ const Navbar:React.FC = () => {
         <div className={classes['header']}>
         <h1 className={classes['header-title']}>Covid-19</h1>
         <nav className={classes['nav']}>
-           
+            
             <NavLink to='/' >
                 <button className={cx([classes['btn'],classes['btn-primary']])}>Worldwide</button>
             </NavLink>
@@ -25,7 +25,6 @@ const Navbar:React.FC = () => {
             <ChartIcon/>
             </NavLink>
         </nav>
-
         <nav className={cx([classes['nav'],classes['secondary-nav']])}>
             <NavLink to='/countries/list' activeClassName={classes['secondary-active']}>
         <div className={classes['nav-item']}> 
@@ -39,7 +38,9 @@ const Navbar:React.FC = () => {
             <span>Map</span>
          </div> 
          </NavLink>
+        
          </nav>
+        
          </div>
     )
 }

@@ -9,6 +9,13 @@ a {
     text-decoration: none;
 }
 
+button,
+button:focus,
+button:active {
+    font-family: inherit;
+    outline: none;
+}
+
 body {
     max-width: 1200px;
     margin: 0 auto;
@@ -26,6 +33,10 @@ body {
 span.flag-select__option {
     max-width: 150px !important;
     overflow: hidden;
+}
+
+.apexcharts-toolbar {
+    top: 10px !important;
 }
 
 @media (min-width: 767px) {
