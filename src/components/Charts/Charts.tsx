@@ -206,19 +206,19 @@ class Charts extends PureComponent<State> {
                       })
                       this.handleClick(3)
                       
-                    }} >3D </button>
+                    }} >3 Days</button>
                     <button className={getActiveBtn('week')} onClick={()=> {
                       this.setState({
                         activeBtn:'week'
                       })
                       this.handleClick(7)
-                    }}>W </button>
+                    }}>Week </button>
                     <button className={getActiveBtn('month')} onClick={()=> {
                       this.setState({
                         activeBtn:'month'
                       })
                       this.handleClick(31)
-                    }}>M </button>
+                    }}>Month </button>
                     <button className={getActiveBtn('all')} onClick={()=> {
                       this.setState({
                         activeBtn:'all'

@@ -31,15 +31,15 @@ const CountryItem:React.FC <CountryItem> = (props) => {
                     </div>
                     <div className={classes['country-stats']}>
                         <span className={classes['cases']}> {numberFormatter(props.totalConfirmed)} </span>
-                        {props.newConfirmed ? <span className={classes['new_confirmed']}>+{props.newConfirmed}</span>: null}
+                        {props.newConfirmed ? <span className={classes['new_confirmed']}>+{numberFormatter(props.newConfirmed)}</span>: null}
                     </div>
                     <div className={classes['country-stats']}> 
                         <span className={classes['cases']}>{numberFormatter(props.totalRecovered)} </span>
-                        {props.newRecovered ?  <span className={classes['new_recovered']}>+{props.newRecovered}</span>:null}
+                        {props.newRecovered ?  <span className={classes['new_recovered']}>+{numberFormatter(props.newRecovered)}</span>:null}
                     </div>
                     <div className={classes['country-stats']}> 
                         <span className={classes['cases']}>{numberFormatter(props.totalDeaths)}</span>
-                        {props.newDeaths ?  <span className={classes['new_deaths']}>+{props.newDeaths}</span>: null}
+                        {props.newDeaths ?  <span className={classes['new_deaths']}>+{numberFormatter(props.newDeaths)}</span>: null}
                     </div>
                 </div>
     )

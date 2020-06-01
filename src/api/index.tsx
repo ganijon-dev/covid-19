@@ -23,7 +23,8 @@ export const fetchCountriesData  = async () => {
 
     try {
         const { data: {Global: {TotalConfirmed, TotalDeaths, TotalRecovered }, Countries}} = await axios.get(`https://api.covid19api.com/summary`);
-       
+        
+        // eslint-disable-next-line 
         const sortedCountries = Countries.sort((a,b)=> {
             if (a['TotalConfirmed'] < b['TotalConfirmed'])  return 1;
             if (a['TotalConfirmed'] > b['TotalConfirmed'])  return -1;
