@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react';
 import Chart from "react-apexcharts";
-import {cx} from '../../commonFiles/functions/'
+import {cx, roundNumber} from '../../commonFiles/functions/'
 import moment from 'moment';
 import {fetchDailyData} from '../../api/index';
 import classes from './Charts.module.scss';
@@ -96,7 +96,7 @@ class Charts extends PureComponent<State> {
           enabled:true,
           y: {
               formatter: function (value:number) {
-                  return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                 roundNumber(value);
               }
           },
       },
@@ -129,7 +129,7 @@ class Charts extends PureComponent<State> {
         type: 'category',
         categories:dates,
         labels: {
-          formatter: function(value, timestamp, index) {
+          formatter: function(value:string) {
             return moment(new Date(value)).format("DD MMM")
           }
         },
@@ -140,8 +140,8 @@ class Charts extends PureComponent<State> {
       yaxis: {
           labels: {
               formatter: function (value:number) {
-                  
-                  return value.toString()[0]+' M'
+      
+                 return roundNumber(value)
               }
           },
       },
@@ -190,7 +190,9 @@ class Charts extends PureComponent<State> {
         yaxis: {
           labels: {
               formatter: function (value:number) {          
-                  return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                return roundNumber(value);  
+                
+                //return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
               }
           },
       },

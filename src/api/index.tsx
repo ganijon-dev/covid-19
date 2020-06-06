@@ -37,3 +37,4 @@ export const fetchCountriesData  = async () => {
         throw Error (error);
     }
 }
+
