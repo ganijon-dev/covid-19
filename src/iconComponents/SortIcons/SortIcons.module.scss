@@ -1,0 +1,27 @@
+@import '../../commonFiles/style/variables';
+.sort-icons {
+    margin-left: 3px;
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+    svg {
+        fill: #ddd;
+        width: 8px;
+        height: 8px;
+    }
+}
+
+.sort-icons .sort-active {
+    fill: $blue;
+}
+
+@media (min-width: 769px) {
+    .sort-icons {
+        margin-left: 5px;
+        opacity: 0;
+        svg {
+            width: 14px;
+            height: 14px;
+        }
+    }
+}

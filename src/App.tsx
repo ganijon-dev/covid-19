@@ -1,5 +1,5 @@
 import React, { Component} from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import Navbar from './components/Navbar/Navbar'
 import CountryList from './components/CountryList/CountryList';
 import WorldMap from './components/WorldMap/WorldMap';
@@ -13,8 +13,9 @@ class App extends Component {
        
         <div className = "App" >  
             <Navbar />
+            <Redirect to='/countries/list'/>
             <Switch>
-          
+            
             <Route exact path= '/countries/list' component={CountryList}/>
             <Route exact path= '/world-map' component={WorldMap}/>
             <Route  exact path= '/world/statistics' component={Charts}/>

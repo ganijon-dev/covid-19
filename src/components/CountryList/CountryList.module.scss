@@ -20,7 +20,7 @@
             display: block;
         }
         &__stats {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: bold;
         }
     }
@@ -29,19 +29,38 @@
 .cases-header {
     display: grid;
     grid-template-columns: 3fr 2fr 2fr 1fr;
+    padding: 0 12px;
+}
+
+.cases-header__btn {
     font-size: 12px;
     font-weight: 600;
-    padding: 0 12px;
-    & div:first-child {
-        display: flex;
+    background-color: #fff;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:first-child {
         justify-content: flex-start;
     }
-    & div {
-        display: flex;
-        justify-content: center;
+    &:hover>div {
+        opacity: 1;
     }
 }
 
 .country-cases {
     margin-bottom: 8px;
+}
+
+@media (min-width:769px) {
+    .cases-header__btn,
+    .total-type {
+        font-size: 16px;
+    }
+    .total-type__stats {
+        font-size: 18px;
+    }
+    .total {
+        padding: 15px;
+    }
 }

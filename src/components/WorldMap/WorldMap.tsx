@@ -47,7 +47,7 @@ const WorldMap:React.FC = () => {
     if (colorScale) {
       return (
         <>
-          <ComposableMap >
+          <ComposableMap className={classes['map']}>
             <ZoomableGroup className={classes['map-positon']} minZoom={1} center={[15,-10]} maxZoom={5}>
               <Geographies geography={geoUrl}  >
                 {({ geographies }) =>

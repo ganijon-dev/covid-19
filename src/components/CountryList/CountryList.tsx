@@ -5,6 +5,7 @@ import {cx, numberFormatter} from '../../commonFiles/functions/index'
 import CountryItem from './CountryItem/CountryItem'
 
 import { fetchCountriesData} from '../../api/index';
+import SortIcons from '../../iconComponents/SortIcons/SortIcons';
 
 interface CountryList {
     TotalConfirmed:number,
@@ -18,7 +19,7 @@ const CountryList = () => {
     const [countryList,setCountryList] = useState <CountryList> ();
    
     useEffect(()=> {
-        console.log('puulling');
+
         const fetchAPI = async () => {
             setCountryList( await fetchCountriesData());
         }
@@ -44,10 +45,10 @@ const CountryList = () => {
             </div>
             <div className={classes['country-cases']}>
                 <div className={classes['cases-header']}>
-                    <div>Countries </div>
-                    <div> Total Cases</div>
-                    <div> Recovered </div>
-                    <div> Deaths</div>
+                    <button className={classes['cases-header__btn']}>Countries <SortIcons asc={false} sortId={'Countries'} appear={true}/> </button>
+                    <button className={classes['cases-header__btn']}> Total Cases <SortIcons asc={false} sortId={'Countries'} appear={true}/></button>
+                    <button className={classes['cases-header__btn']}> Recovered <SortIcons asc={false} sortId={'Countries'} appear={true}/> </button>
+                    <button className={classes['cases-header__btn']}> Deaths <SortIcons asc={false} sortId={'Countries'} appear={true}/></button>
                 </div>
                 {countryList?.sortedCountries.map(({Country, CountryCode, TotalConfirmed,TotalDeaths,TotalRecovered,NewConfirmed,NewRecovered,NewDeaths }) => {
                    return <CountryItem 
@@ -62,11 +63,10 @@ const CountryList = () => {
                     key={CountryCode}
                     />
                 })}
-                
-                
+                   
             </div>
         </div>
     )
 }
 
-export default CountryList
+export default CountryList;

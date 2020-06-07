@@ -96,7 +96,7 @@ class Charts extends PureComponent<State> {
           enabled:true,
           y: {
               formatter: function (value:number) {
-                 roundNumber(value);
+                return roundNumber(value);
               }
           },
       },

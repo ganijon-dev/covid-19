@@ -9,10 +9,8 @@
     height: auto;
     overflow: hidden;
     color: $white;
-    position: fixed;
-    left: 0;
-    bottom: 0;
     width: 100%;
+    justify-content: center;
 }
 
 .total {
@@ -22,6 +20,7 @@
     color: $white;
     margin-top: 15px;
     border-radius: 5px;
+    max-width: 400px;
     padding: 10px;
     width: 100%;
     &-type {
@@ -38,3 +37,47 @@
         }
     }
 }
+
+path {
+    outline: none;
+}
+
+@media (min-width:769px) {
+    .total-type {
+        font-size: 18px;
+    }
+    .total-stats {
+        font-size: 20px;
+    }
+}
+
+@media (max-width:600px) {
+    .map {
+        height: calc(60vh - 185px);
+        width: 100%;
+    }
+    .world-stats {
+        height: 39.3vh;
+        img {
+            height: 20vh;
+        }
+    }
+}
+
+@media (min-width:601px) {
+    .map {
+        height: calc(75vh - 185px);
+        width: 100%;
+    }
+    .world-stats {
+        height: 24.3vh;
+        img {
+            height: 14vh;
+        }
+    }
+}
+
+// body {
+//     position: relative; // that's it
+//     overflow: hidden;
+// }
