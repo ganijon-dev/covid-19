@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react'
 import classes from './CountryList.module.scss'
+import {Link} from 'react-router-dom';
 // eslint-disable-next-line
-import {cx, numberFormatter} from '../../commonFiles/functions/index'
+import {numberFormatter} from '../../commonFiles/functions/index'
 import CountryItem from './CountryItem/CountryItem'
 
 import { fetchCountriesData} from '../../api/index';
@@ -15,8 +16,11 @@ interface CountryList {
 };
 
 
+
 const CountryList = () => {
+    
     const [countryList,setCountryList] = useState <CountryList> ();
+    const [sorting, setSorting] = useState({sortedBy:'Confirmed', asc:true})
    
     useEffect(()=> {
 
@@ -25,6 +29,38 @@ const CountryList = () => {
         }
         fetchAPI();
     }, [])
+
+    // const compareBy = (key:number|string) => { 
+    //     return function(a, b) { 
+    //         let compA, compB ;
+    //         if (typeof a[key]==='number' && typeof b[key] ==='number') {
+    //             compA = a[key];
+    //             compB = b[key];
+    //         }
+    //         else {
+    //             compA = a[key].toLowerCase();
+    //             compB = b[key].toLowerCase();
+    //         }  
+    //         if (sorting.asc) {
+    //             if (compA > compB) return -1;
+    //             if (compA < compB) return 1;
+    //             return 0;
+    //         }
+    //         else {
+    //             if (compA < compB) return -1;
+    //             if (compA > compB) return 1;
+    //             return 0;
+    //         }
+    //       };
+    //   };
+    //   const sortList = (event) => {
+    //     let arrayCopy = countryList?.sortedCountries;
+    //     arrayCopy?.sort(compareBy(event.target.id));
+    //     setSorting(!sorting.asc, sorting.sortedBy:event.target.id)
+    //   }
+    
+        // this.setState({ tools: arrayCopy, asc: !sorting.asc, sorting.sortedBy: event.target.id});
+    
 
     return (
       
@@ -45,13 +81,18 @@ const CountryList = () => {
             </div>
             <div className={classes['country-cases']}>
                 <div className={classes['cases-header']}>
-                    <button className={classes['cases-header__btn']}>Countries <SortIcons asc={false} sortId={'Countries'} appear={true}/> </button>
-                    <button className={classes['cases-header__btn']}> Total Cases <SortIcons asc={false} sortId={'Countries'} appear={true}/></button>
-                    <button className={classes['cases-header__btn']}> Recovered <SortIcons asc={false} sortId={'Countries'} appear={true}/> </button>
-                    <button className={classes['cases-header__btn']}> Deaths <SortIcons asc={false} sortId={'Countries'} appear={true}/></button>
+                    <button className={classes['cases-header__btn']} >Countries
+                     <SortIcons asc={sorting.asc} sortId={'Country'} appear={true}/> </button>
+                    <button className={classes['cases-header__btn']} > Total Cases 
+                    <SortIcons asc={sorting.asc} sortId={'Countries'} appear={true}/></button>
+                    <button className={classes['cases-header__btn']}> Recovered 
+                    <SortIcons asc={sorting.asc} sortId={'Countries'} appear={true} /> </button>
+                    <button className={classes['cases-header__btn']} > Deaths 
+                    <SortIcons asc={sorting.asc} sortId={'Countries'} appear={true}/></button>
                 </div>
-                {countryList?.sortedCountries.map(({Country, CountryCode, TotalConfirmed,TotalDeaths,TotalRecovered,NewConfirmed,NewRecovered,NewDeaths }) => {
-                   return <CountryItem 
+                {countryList?.sortedCountries.map(({Country, CountryCode, TotalConfirmed,TotalDeaths,TotalRecovered,NewConfirmed,NewRecovered,NewDeaths,Slug }) => {
+                
+                   return <Link to={'/countries/' + Slug}  key={CountryCode}><CountryItem 
                     countryCode= {CountryCode} 
                     country= {Country}
                     totalConfirmed= {TotalConfirmed}
@@ -60,8 +101,7 @@ const CountryList = () => {
                     newConfirmed = {NewConfirmed} 
                     newRecovered = {NewRecovered}
                     newDeaths = {NewDeaths}
-                    key={CountryCode}
-                    />
+                    /> </Link>
                 })}
                    
             </div>

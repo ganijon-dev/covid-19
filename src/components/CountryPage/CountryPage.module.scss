@@ -1,0 +1,35 @@
+@import '../../commonFiles/style/_variables.scss';
+.confirmed-chart {
+    margin-top: 8px;
+}
+
+.deaths-chart {
+    margin-top: -7px;
+}
+
+.container {
+    padding: 0px 15px 15px;
+    background-color: #f0f1f3;
+}
+
+.report-type__wrapper {
+    border: 1px solid $blue;
+    box-sizing: border-box;
+    border-radius: 2px;
+}
+
+.report-type {
+    width: 25%;
+    color: $blue;
+    padding: 4px 10px;
+    background-color: #f0f1f3;
+    border: none;
+    border-right: 1px solid $blue;
+    &:last-child {
+        border: none;
+    }
+    &__active {
+        background-color: $blue;
+        color: $white;
+    }
+}

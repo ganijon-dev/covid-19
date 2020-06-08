@@ -2,20 +2,25 @@ import React, {PureComponent} from 'react';
 import Chart from "react-apexcharts";
 import {cx, roundNumber, numberFormatter} from '../../commonFiles/functions/'
 import moment from 'moment';
-import {fetchDailyData} from '../../api/index';
-import classes from './Charts.module.scss';
+import {fetchCountryDailyData} from '../../api/index';
+import classes from './CountryPage.module.scss';
 
 interface Data {
   confirmed:number, deaths:number, date:string
 }
-interface State {
+interface ChartsState {
     data:Array<Data>|[],
     period:number,
     activeBtn: string
 };
+interface ChartsProps {
+    match:{
+        params:{
+            country:string
+}}}
 
-class Charts extends PureComponent<State> {
-  state: Readonly<State> = {
+class Charts extends PureComponent< ChartsProps, ChartsState> {
+  state: Readonly<ChartsState> = {
     data:[],
     period:31,
     activeBtn: 'month'
@@ -27,19 +32,18 @@ class Charts extends PureComponent<State> {
   }
 
   async componentDidMount  () {
-    const data = await fetchDailyData();
-   
+    const countrySlug = this.props.match.params.country
+    const data = await fetchCountryDailyData(countrySlug);
     this.setState({
         data:data
-    }
-    )
+    })
   }
   
-
+    
   render() {
     const fetchedData = this.state.data;
     const {activeBtn} = this.state;
-    
+
     if (fetchedData.length) {
       let confirmed:number[]= [], deaths:number[]=[], dates:string[]=[];
     const {period} = this.state;

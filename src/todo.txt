@@ -1,5 +1,4 @@
-1.Country Item Page
+1. Country Item Page
 2. Skeleton Loaders 
 3. Sorting Functions
-4. Style Nav for Desktop
  

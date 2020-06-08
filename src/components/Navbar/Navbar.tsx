@@ -16,7 +16,7 @@ const Navbar:React.FC = () => {
         <h1 className={classes['header-title']}>Covid-19</h1>
         <nav className={classes['nav']}>
             
-            <NavLink to='/' >
+            <NavLink to='/countries/list' >
                 <button className={cx([classes['btn'],classes['btn-primary']])}>Worldwide</button>
             </NavLink>
             <ReactFlagsSelect
