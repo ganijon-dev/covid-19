@@ -20,7 +20,7 @@ const Navbar:React.FC = () => {
                 <button className={cx([classes['btn'],classes['btn-primary']])}>Worldwide</button>
             </NavLink>
             <ReactFlagsSelect
-                searchable={true} placeholder='Countries' countries={['TJ','RU','US', 'AG'] } defaultCountry={defaultValue} className={cx([classes['btn'],classes['select']])} onSelect={(code)=> handleSelect(code)} />
+                searchable={true} placeholder='Countries' countries={['RU','US', 'AG'] } defaultCountry={defaultValue} className={cx([classes['btn'],classes['select']])} onSelect={(code)=> handleSelect(code)} />
             <NavLink to='/world/statistics' style={{marginLeft:'auto'}} activeClassName={classes['stats-active']}>  
             <ChartIcon/>
             </NavLink>

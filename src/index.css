@@ -21,10 +21,6 @@ body {
     margin: 0 auto;
 }
 
-.flag-select__option__label {
-    font-size: 20px !important;
-}
-
 .border {
     border: 1px solid #F40555;
     border-radius: 5px;
@@ -47,5 +43,8 @@ span.flag-select__option {
     span.flag-select__option {
         max-width: 350px !important;
         overflow: hidden;
+    }
+    .flag-select__option__label {
+        font-size: 20px !important;
     }
 }
